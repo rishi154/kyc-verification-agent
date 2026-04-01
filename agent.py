@@ -391,7 +391,7 @@ async def health():
 
 @app.on_event("startup")
 async def register():
-    async with httpx.AsyncClient(timeout=5.0) as client:
+    async with httpx.AsyncClient(timeout=60.0) as client:
         try:
             await client.post(f"{A2A_SERVER_URL}/agents/register", json={
                 "agent_id": AGENT_ID,
